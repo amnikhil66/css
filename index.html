@@ -63,7 +63,7 @@
 						<h4>A Look Under the Hood</h4>
 					</header>
 					<figure>
-						<a class="image" href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/"><img src="http://www.commitstrip.com/wp-content/uploads/2012/05/Strips-Devices-english800-final.jpg"></a>
+						<a class="image" href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/"><img src="css/images/commit_strip.png"></a>
 						<figcaption>Image Source: <a href="http://www.scoop.co.nz/">Scoop</a></figcaption>
 					</figure>
 				</section>
@@ -124,6 +124,39 @@ p{
 							</code></pre>
 						</li>
 						<li>
+							<p>Pseudo Elements</p>
+							<pre><code>
+p:first-line{
+  text-decoration: underline;
+}
+p:first-letter{
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+:before{
+  content: '"';
+  color: #666;
+}
+:after{
+  content: '"';
+  color: #666;
+}
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type = Pseudo Elements
+					</p>
+				</section>
+				<section>
+					<ul>
+						<li>
 							<p>Descendant</p>
 							<pre><code>
 div p{
@@ -146,7 +179,10 @@ div > p{
 						<h3>Precedence So Far</h3>
 					</header>
 					<p>
-						Universal < Type < Descendant < Child
+						Universal < Type = Pseudo Elements <
+					</p>
+					<p>
+						Descendant = Child
 					</p>
 				</section>
 				<section>
@@ -194,48 +230,11 @@ button:active{
 						<h3>Precedence So Far</h3>
 					</header>
 					<p>
-						Universal < Type < Descendant < Child < Adjacent <
+						Universal < Type = Pseudo Elements <
 					</p>
 					<p>
-						Pseudo Classes
-					</p>				
-				</section>
-				<section>
-					<ul>
-						<li>
-							<p>Pseudo Elements</p>
-							<pre><code>
-p:first-line{
-  text-decoration: underline;
-}
-p:first-letter{
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-:before{
-  content: '"';
-  color: #666;
-}
-:after{
-  content: '"';
-  color: #666;
-}
-							</code></pre>
-						</li>
-
-					</ul>
-				</section>
-				<section>
-					<header>
-						<h3>Precedence So Far</h3>
-					</header>
-					<p>
-						Universal < Type < Descendant < Child < Adjacent <
+						Descendant = Child = Adjacent = Pseudo Classes
 					</p>
-					<p>
-						Pseudo Classes < Pseudo Elements
-					</p>				
 				</section>
 				<section>
 					<ul>
@@ -273,10 +272,13 @@ input[class|="name"]{
 						<h3>Precedence So Far</h3>
 					</header>
 					<p>
-						Universal < Type < Descendant < Child < Adjacent <
+						Universal < Type = Pseudo Elements <
 					</p>
 					<p>
-						Pseudo Classes < Pseudo Elements < Attributes
+						Descendant = Child = Adjacent = Pseudo Classes =
+					</p>
+					<p>
+						Attribute
 					</p>				
 				</section>
 				<section>
@@ -299,6 +301,14 @@ div#unique_div{
 }
 							</code></pre>
 						</li>
+						<li>
+							<p>Inline Styles</p>
+							<pre><code>
+<div id="unique_div" style="font: 24px; color: #000;">
+	....
+</div>
+							</code></pre>
+						</li>
 					</ul>
 				</section>
 				<section>
@@ -306,15 +316,25 @@ div#unique_div{
 						<h3>Precedence So Far</h3>
 					</header>
 					<p>
-						Universal < Type < Descendant < Child < Adjacent <
+						Universal < Type = Pseudo Elements <
 					</p>
 					<p>
-						Pseudo Classes < Pseudo Elements < Attributes <
+						Descendant = Child = Adjacent = Pseudo Classes =
 					</p>
 					<p>
-						Class < ID
+						Attribute = Class < ID < Inline Styles
 					</p>
 				</section>
+			</section>
+			<section>
+				<header>
+					<h3>Specificity</h3>
+				</header>
+				<figure>
+					<img src="css/images/nesting_dolls.png" alt="Russian Nesting Doll">
+					<figcaption>Russian Nesting Doll Aka Matryoshka doll</figcaption>
+				</figure>
+				<a href="http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">More on CSS Specificity</a>
 			</section>
 			<section>
 				<header>
